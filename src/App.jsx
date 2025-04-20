@@ -6,6 +6,7 @@ import SignUp from './pages/SignUp';
 import './App.css';
 import Dashboard from './pages/Dashboard';
 import Teams from './pages/Teams';
+import SprintDashboard from './components/dashboard/SprintDashboard';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/chat' element={<Teams />} />
+        <Route path='/sprints' element={<SprintDashboard />} /> 
       </Routes>
     </Router>
   );

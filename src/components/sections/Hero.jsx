@@ -19,8 +19,8 @@ const fadeUp = {
 
 const Hero = () => {
   return (
-    <section id="hero" className="relative h-screen w-full overflow-hidden flex items-center">
-      <div className="h-full w-full bg-gradient-to-b from-slate-900 to-slate-800 relative flex flex-col items-center justify-center">
+    <section id="hero" className="relative h-screen w-full overflow-hidden flex items-center font-sans">
+      <div className="h-full w-full bg-gradient-to-b from-[#1e1b4b] to-[#0f172a] relative flex flex-col items-center justify-center">
         <motion.div
           variants={container}
           initial="hidden"
@@ -29,7 +29,7 @@ const Hero = () => {
         >
           <motion.h1
             variants={fadeUp}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-blue-600 mb-6 leading-tight"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500 mb-6 leading-tight"
           >
             Elevate Your Digital Experience
           </motion.h1>
@@ -46,20 +46,20 @@ const Hero = () => {
             variants={fadeUp}
             className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 mt-8"
           >
-            <Button variant="primary" size="large" className="min-w-32 sm:min-w-40">
+            <Button variant="primary" size="large" className="min-w-32 sm:min-w-40 bg-purple-600 hover:bg-purple-700 text-white">
               Get Started
             </Button>
             <Button
               variant="outline"
               size="large"
-              className="min-w-32 sm:min-w-40 border-white text-white hover:bg-slate-800"
+              className="min-w-32 sm:min-w-40 border-purple-400 text-purple-200 hover:bg-purple-800 hover:border-purple-500"
             >
               Learn More
             </Button>
           </motion.div>
 
           <motion.div variants={fadeUp} className="mt-16 relative">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-lg blur-sm opacity-75"></div>
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg blur-sm opacity-70"></div>
             <div className="relative bg-slate-900 rounded-lg overflow-hidden border border-slate-700 shadow-xl">
               <img 
                 src="/api/placeholder/1200/600" 
@@ -82,7 +82,7 @@ const Hero = () => {
           fill="none" 
           viewBox="0 0 24 24" 
           stroke="currentColor"
-          className="text-white"
+          className="text-purple-300"
         >
           <path 
             strokeLinecap="round" 

@@ -6,6 +6,22 @@ try:
     from PIL import Image
 except ImportError:
     pytesseract = None  # handle case where OCR tools are not installed
+from dotenv import load_dotenv
+import google.generativeai as genai
+
+load_dotenv()
+GEMINI_API_KEY=os.getenv("GEMINI_API_KEY")
+
+os.getenv("GEMINI_API_KEY")
+genai.configure(api_key=GEMINI_API_KEY)
+
+if(GEMINI_API_KEY):
+    print("API key is connected successfully.")
+
+model = genai.GenerativeModel('models/gemini-1.5-pro-latest')
+
+test_response = model.generate_content("Hello, I am Gemini!")
+print(test_response)
 
 def parse_input_files(inputs):
     """
