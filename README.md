@@ -1,12 +1,73 @@
-# React + Vite
+# inkei
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+_inkei_ is a modern web application built using _React + Vite, styled with **Tailwind CSS, and maintained with **ESLint_. This setup aims to provide a fast and efficient development experience.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- ⚛️ React for building dynamic UIs
+- ⚡ Vite for ultra-fast builds and HMR
+- 🎨 Tailwind CSS for utility-first styling
+- 🧹 ESLint for clean, consistent code
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v14 or above)
+- npm or yarn
+
+### Installation
+
+bash
+git clone https://github.com/MashyBasker/inkei.git
+cd inkei
+npm install
+
+# or
+
+yarn install
+
+##Running the App
+bash
+npm run dev
+
+# or
+
+yarn dev
+
+The app will be available at: http://localhost:5173
+
+##Build for production
+bash
+npm run preview
+
+# or
+
+yarn preview
+
+##Project Strcture
+bash
+inkei/
+├── backend/ # Backend-related code (if any)
+├── public/ # Static assets
+├── src/ # Source code (components, pages, etc.)
+├── index.html # Main HTML file
+├── package.json # NPM metadata and scripts
+├── tailwind.config.js # Tailwind CSS config
+├── vite.config.js # Vite config
+└── README.md # You're here!
+
+##Scripts
+Command | Description
+npm run dev | Run the app in development mode
+npm run build | Create a production build
+npm run preview | Preview the production build
+npm run lint | Lint the project with ESLint
+
+##Contributing
+Contributions are welcome!
+Feel free to fork the repository and submit a pull request.
