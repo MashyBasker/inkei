@@ -70,7 +70,7 @@ const Navbar = ({ className }) => {
           </div>
 
           <div className="hidden md:flex md:items-center md:space-x-10">
-            {['features', 'testimonials', 'pricing', 'faq', 'contact'].map((item) => (
+            {['features', 'testimonials', 'pricing', 'faq', 'contact', 'chat', 'dashboard'].map((item) => (
               <a
                 key={item}
                 href={`#${item}`}
@@ -136,10 +136,10 @@ const Navbar = ({ className }) => {
       {/* Mobile menu */}
       <div className={`md:hidden ${mobileMenuOpen ? 'block' : 'hidden'}`}>
         <div className="px-4 pt-4 pb-3 bg-white/80 backdrop-blur-md border-t border-gray-200 shadow-md">
-          {['features', 'testimonials', 'pricing', 'faq', 'contact'].map((item) => (
+          {['features', 'testimonials', 'pricing', 'faq', 'contact', 'chat', 'dashboard'].map((item) => (
             <a
               key={item}
-              href={`#${item}`}
+              href={`{item}`}
               className="block px-3 py-3 rounded-md text-lg font-semibold text-gray-800 hover:text-violet-600 hover:bg-gray-100"
             >
               {item.charAt(0).toUpperCase() + item.slice(1)}

@@ -209,69 +209,66 @@ def call_gemini_for_features(text):
 
 def main():
     parser = argparse.ArgumentParser(description="Product Manager AI (Gemini-powered) CLI")
-    parser.add_argument('inputs', nargs='+', help="Paths or URLs to feature description files (markdown, text, images, or GitHub repo URL).")
+    parser.add_argument('--initial', help="Path to initial feature file (e.g., version 1.1)", required=True)
+    parser.add_argument('--additional', help="Path to new client-requested feature file (e.g., version 1.2)", required=False)
     args = parser.parse_args()
-    # Parse and aggregate content from inputs
-    combined_text = parse_input_files(args.inputs)
-    if not combined_text:
-        print("No content to analyze. Please provide valid input files or URLs.")
-        return
 
-    # Step 1: Extract feature ideas and requirements
-    # (Using Gemini API placeholder)
-    features = call_gemini_for_features(combined_text)
-    # Ensure unique and non-empty features list
-    features = [f for f in features if f]
-    if not features:
-        features = []  # no features found (empty list)
+    # Process initial features
+    initial_text = parse_input_files([args.initial])
+    initial_features = call_gemini_for_features(initial_text)
+    initial_features = [f for f in initial_features if f]
 
-    # Step 2: Detect mentioned or implied tech stack
-    # (Using Gemini or simple keyword detection)
-    detected_stack = detect_tech_stack_locally(combined_text)
-    # We could also call an AI to infer tech stack; for now we use the detected keywords.
-    tech_stack_list = sorted(detected_stack)  # sort for consistent order
+    # Optionally process additional features
+    additional_features = []
+    if args.additional:
+        additional_text = parse_input_files([args.additional])
+        additional_features = call_gemini_for_features(additional_text)
+        additional_features = [f for f in additional_features if f]
 
-    # Step 3: Evaluate tech stack suitability for scalability
+    # Detect and evaluate tech stack from both files
+    full_text = initial_text + "\n" + (additional_text if args.additional else "")
+    detected_stack = detect_tech_stack_locally(full_text)
+    tech_stack_list = sorted(detected_stack)
     is_suitable, suggestions = evaluate_tech_stack(tech_stack_list)
 
-    # Step 4: Break each feature into subtasks (Agile/Scrum style)
-    subtasks_plan = breakdown_features_into_subtasks(features)
-    # (In real use, Gemini would be called to generate subtasks and points.)
+    # Merge features and mark reused ones
+    combined_plan = {}
+    reused_features = set(initial_features) & set(additional_features)
 
-    # Step 5: Assign story points to each subtask (already done in breakdown in this placeholder)
+    # Step 1: Breakdown reused ones (with reduced points)
+    for feature in reused_features:
+        subtasks = []
+        subtasks.append((f"Review existing: {feature}", 1, "Feature exists from version 1.1. Minor review needed."))
+        subtasks.append((f"Enhance: {feature}", 2, "Build on top of existing implementation."))
+        subtasks.append((f"Retest: {feature}", 1, "Ensure new changes don’t break previous release."))
+        combined_plan[feature + " (updated)"] = subtasks
 
-    # Output the results in structured format
-    print("\n=== Extracted Features ===")
-    if features:
-        for feat in features:
-            print(f"- {feat}")
-    else:
-        print("(No distinct features identified)")
+    # Step 2: Handle new additional features (full points)
+    for feature in set(additional_features) - reused_features:
+        combined_plan[feature] = breakdown_features_into_subtasks([feature])[feature]
 
+    # Step 3: Handle initial-only features if no additional file is passed
+    if not args.additional:
+        for feature in initial_features:
+            combined_plan[feature] = breakdown_features_into_subtasks([feature])[feature]
+
+    # Output
     print("\n=== Detected Tech Stack ===")
-    if tech_stack_list:
-        print(", ".join(tech_stack_list))
-    else:
-        print("(No specific technology stack detected)")
-
+    print(", ".join(tech_stack_list) if tech_stack_list else "(No tech detected)")
     if not is_suitable:
         print("\n=== Suggested Alternatives ===")
-        for suggestion in suggestions:
-            print(f"- {suggestion}")
-    # If the tech stack is suitable or no tech info, this section can be skipped or a note can be given
+        for s in suggestions:
+            print(f"- {s}")
     elif tech_stack_list:
-        print("\n=== Suggested Alternatives ===")
-        print("Current tech stack is appropriate for scalability and robustness.")
+        print("\nCurrent tech stack appears scalable and robust.")
 
-    print("\n=== Subtasks with Story Points ===")
-    if subtasks_plan:
-        for feat, subtasks in subtasks_plan.items():
-            print(f"\nFeature: {feat}")
-            for (task, points, reason) in subtasks:
-                print(f"  - {task} -> **{points} points**")
-                print(f"    Reason: {reason}")
-    else:
-        print("(No subtasks generated)")
+    print("\n=== Subtasks with Adjusted Story Points ===")
+    for feat, subtasks in combined_plan.items():
+        print(f"\nFeature: {feat}")
+        for (task, points, reason) in subtasks:
+            print(f"  - {task} -> **{points} points**")
+            print(f"    Reason: {reason}")
+
     
 if __name__ == "__main__":
     main()
