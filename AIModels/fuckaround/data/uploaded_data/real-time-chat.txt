@@ -1,0 +1,1 @@
+"Employees in an organization can encourage others under various params. The receipient gets an email which he can acknowledge and respond back."

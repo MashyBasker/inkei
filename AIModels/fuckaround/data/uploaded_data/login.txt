@@ -1,0 +1,1 @@
+"i want to make a sign up/sign in which will have secure role based authentication based on seniority. this will have a concurrent task of creating a real time communication chat interface with websocket and video calling with webrtc, i want this done in 15days."
