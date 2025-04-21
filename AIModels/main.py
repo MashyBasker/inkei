@@ -207,11 +207,16 @@ def call_gemini_for_features(text):
         features = [text.strip()[:60] + "..."]  # first 60 chars as a summary
     return features
 
+import argparse
+import json
+
 def main():
     parser = argparse.ArgumentParser(description="Product Manager AI (Gemini-powered) CLI")
     parser.add_argument('--initial', help="Path to initial feature file (e.g., version 1.1)", required=True)
     parser.add_argument('--additional', help="Path to new client-requested feature file (e.g., version 1.2)", required=False)
     args = parser.parse_args()
+
+    result = {}
 
     # Process initial features
     initial_text = parse_input_files([args.initial])
@@ -224,12 +229,20 @@ def main():
         additional_text = parse_input_files([args.additional])
         additional_features = call_gemini_for_features(additional_text)
         additional_features = [f for f in additional_features if f]
+    else:
+        additional_text = ""
 
     # Detect and evaluate tech stack from both files
-    full_text = initial_text + "\n" + (additional_text if args.additional else "")
+    full_text = initial_text + "\n" + additional_text
     detected_stack = detect_tech_stack_locally(full_text)
     tech_stack_list = sorted(detected_stack)
     is_suitable, suggestions = evaluate_tech_stack(tech_stack_list)
+
+    result["tech_stack"] = tech_stack_list
+    if not is_suitable:
+        result["suggested_alternatives"] = suggestions
+    else:
+        result["stack_status"] = "Current tech stack appears scalable and robust."
 
     # Merge features and mark reused ones
     combined_plan = {}
@@ -237,37 +250,33 @@ def main():
 
     # Step 1: Breakdown reused ones (with reduced points)
     for feature in reused_features:
-        subtasks = []
-        subtasks.append((f"Review existing: {feature}", 1, "Feature exists from version 1.1. Minor review needed."))
-        subtasks.append((f"Enhance: {feature}", 2, "Build on top of existing implementation."))
-        subtasks.append((f"Retest: {feature}", 1, "Ensure new changes don’t break previous release."))
+        subtasks = [
+            {"task": f"Review existing: {feature}", "points": 1, "reason": "Feature exists from version 1.1. Minor review needed."},
+            {"task": f"Enhance: {feature}", "points": 2, "reason": "Build on top of existing implementation."},
+            {"task": f"Retest: {feature}", "points": 1, "reason": "Ensure new changes don’t break previous release."}
+        ]
         combined_plan[feature + " (updated)"] = subtasks
 
     # Step 2: Handle new additional features (full points)
     for feature in set(additional_features) - reused_features:
-        combined_plan[feature] = breakdown_features_into_subtasks([feature])[feature]
+        subtasks = breakdown_features_into_subtasks([feature])[feature]
+        combined_plan[feature] = [
+            {"task": t, "points": p, "reason": r} for (t, p, r) in subtasks
+        ]
 
     # Step 3: Handle initial-only features if no additional file is passed
     if not args.additional:
         for feature in initial_features:
-            combined_plan[feature] = breakdown_features_into_subtasks([feature])[feature]
+            subtasks = breakdown_features_into_subtasks([feature])[feature]
+            combined_plan[feature] = [
+                {"task": t, "points": p, "reason": r} for (t, p, r) in subtasks
+            ]
 
-    # Output
-    print("\n=== Detected Tech Stack ===")
-    print(", ".join(tech_stack_list) if tech_stack_list else "(No tech detected)")
-    if not is_suitable:
-        print("\n=== Suggested Alternatives ===")
-        for s in suggestions:
-            print(f"- {s}")
-    elif tech_stack_list:
-        print("\nCurrent tech stack appears scalable and robust.")
+    result["subtasks"] = combined_plan
 
-    print("\n=== Subtasks with Adjusted Story Points ===")
-    for feat, subtasks in combined_plan.items():
-        print(f"\nFeature: {feat}")
-        for (task, points, reason) in subtasks:
-            print(f"  - {task} -> **{points} points**")
-            print(f"    Reason: {reason}")
+    # Final JSON Output
+    print(json.dumps(result, indent=2))
+
 
     
 if __name__ == "__main__":

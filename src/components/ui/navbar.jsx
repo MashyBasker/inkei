@@ -64,7 +64,7 @@ const Navbar = ({ className }) => {
             <div className="w-10 h-10 rounded-md overflow-hidden">
               <img src="/logo.jpg" alt="Logo" className="w-full h-full object-cover" />
             </div>
-            <a href="/" className="text-3xl font-extrabold text-violet-700 dark:text-white">
+            <a href="/" className="text-3xl font-extrabold text-red dark:text-white">
               Zenith
             </a>
           </div>
@@ -148,7 +148,7 @@ const Navbar = ({ className }) => {
           <div className="mt-4 border-t border-gray-300 pt-4">
             {user ? (
               <>
-                <p className="px-3 text-lg font-semibold text-gray-800 mb-2">Welcome, {user.fullName}</p>
+                <p className="px-3 text-lg font-semibold text-black mb-2">Welcome, {user.fullName}</p>
                 <Button
                   variant="ghost"
                   className="w-full mb-2 text-violet-700 hover:text-violet-900"

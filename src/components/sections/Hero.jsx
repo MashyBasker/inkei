@@ -20,7 +20,7 @@ const fadeUp = {
 const Hero = () => {
   return (
     <section id="hero" className="relative h-screen w-full overflow-hidden flex items-center font-sans">
-      <div className="h-full w-full bg-gradient-to-b from-[#1e1b4b] to-[#0f172a] relative flex flex-col items-center justify-center">
+      <div className="h-full w-full bg-gradient-to-b mb-none from-[#1e1b4b] to-[#0f172a] relative flex flex-col items-center justify-center">
         <motion.div
           variants={container}
           initial="hidden"
@@ -60,13 +60,7 @@ const Hero = () => {
 
           <motion.div variants={fadeUp} className="mt-16 relative">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg blur-sm opacity-70"></div>
-            <div className="relative bg-slate-900 rounded-lg overflow-hidden border border-slate-700 shadow-xl">
-              <img 
-                src="/api/placeholder/1200/600" 
-                alt="Dashboard Preview" 
-                className="w-full h-auto rounded-lg opacity-90 hover:opacity-100 transition-opacity duration-300"
-              />
-            </div>
+            
           </motion.div>
         </motion.div>
 
