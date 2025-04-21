@@ -90,7 +90,7 @@ You should see https://locahost:5173/ as your frontend server and MongoDB connec
 Now to test the AI pipeline endpoint:
 
 ```
-cd AIModels -> python main.py --initial input/filename1 <optiona> --additional input/filename2
+cd AIModels -> python main.py --initial input/filename1 <optional> --additional input/filename2
 ```
 
 Supported files - .md, .txt, .rtf </br>
