@@ -37,9 +37,9 @@ if uploaded_file:
             st.text_area("Available Models", select_model(), height=200)
 
 if prompt := st.chat_input("ask anything about your product or backlog:"):
-    chat_message(prompt, is_user=True)
+    chatMessage(prompt, is_user=True)
     with st.spinner("Thinking..."):
         result = qa_chain.run(context=context if uploaded_file else "", question=prompt)
-        chat_message(result)
+        chatMessage(result)
 
 
