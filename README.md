@@ -1,291 +1,116 @@
-Absolutely! Here's the complete Markdown code for your upgraded `README.md`:
+<p align="center">
+  <a href="" rel="noopener">
+ <img src="https://i.postimg.cc/8PGQ0pGL/image.png" alt="Project logo"></a>
+</p>
+<h3 align="center">Zenith</h3>
 
-```md
-# 🧿 inkei
+<div align="center">
 
-**inkei** is a modern web app starter built with **React**, powered by **Vite**, styled with **Tailwind CSS**, and linted with **ESLint** for maximum consistency. It’s fast, minimal, and ready to scale.
+[![Hackathon](https://img.shields.io/badge/hackathon-name-orange.svg)](https://aignite2025.com)
+[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 
----
-
-## 🚀 Features
-
-- ⚛️ **React** — Build rich, interactive UIs with ease  
-- ⚡ **Vite** — Lightning-fast dev server & instant HMR  
-- 🎨 **Tailwind CSS** — Utility-first, customizable styling  
-- 🧹 **ESLint** — Keep your codebase clean & readable  
-- 🧰 **Modular structure** — Scalable and maintainable folder layout
+</div>
 
 ---
 
-## 🛠️ Getting Started
+<p align="center"> Zenith is a next-generation Work Operating System that integrates artificial intel-
+ligence into every layer of the Secure Software Development Life Cycle (SSDLC). Built for engineering teams, it automates planning, task management, communication, code
+review, and compliance of all within a unified workspace.
+    <br> 
+</p>
 
-### 🔧 Prerequisites
+## 📝 Table of Contents
 
-- [Node.js](https://nodejs.org/) — version 14 or higher  
-- npm or yarn package manager  
+- [Problem Statement](#problem_statement)
+- [Idea / Solution](#idea)
+- [Dependencies](#limitations)
+- [Setting up a local environment](#getting_started)
+- [Usage](#usage)
+- [Technology Stack](#tech_stack)
+- [Authors](#authors)
 
-### 📦 Installation
+## 🧐 Problem Statement <a name = "problem_statement"></a>
 
-```bash
+Modern product and project management processes are complex, involving numerous tasks from UI/UX design to feature implementation and coordination among team members. There's a need to streamline and automate these processes within the Secure Software Development Life Cycle (SSDLC), making project management more efficient and fluid.
+
+Develop an AI-powered Work Operating System as a Software-as-a-Service (SaaS) that provides a common workspace for client company employees. The innovative features of the solution include:
+
+## 💡 Idea / Solution <a name = "idea"></a>
+
+Zenith is a SaaS platform that intelligently integrates team collaboration, code
+analysis, and sprint planning with real-time AI support. </br>
+
+### Core Features:
+
+• GitHub Bot: Automatically reviews PRs, detects issues, and suggests optimal fixes or alternatives. </br>
+• Real-Time Chat Interface: Role-based, secure messaging embedded within the workspace. </br>
+• AI Dashboard: Upload documents or files to extract task context, assign story points, and auto-plan sprints. </br>
+• Delta Branch Detection: Identifies branch deviations and reassigns story points accordingly. </br>
+• AI Canvas: Breaks high-level tasks into subtasks with estimated durations.
+
+## 🏁 Getting Started <a name = "getting_started"></a>
+
+These instructions will get you a copy of the project up and running on your local machine for development
+and testing purposes.
+
+### Prerequisites
+
+What things you need to install the software and how to install them.
+
+```
+NodeJS - ver. 22.0+
+Python - ver. 3.x
+```
+
+### Installing
+
+A step by step series of examples that tell you how to get a development env running.
+
+First, copy paste this command into any folder (preferably blank):
+
+```
 git clone https://github.com/MashyBasker/inkei.git
-cd inkei
-npm install     # or yarn install
 ```
 
----
+Then, you need to create a .env file inside your folder where you have cloned the repository. It will contain GEMINI_API_KEY, MONGO_URI, MONGO_CEO_URI, MONGO_SR_URI, MONGO_JR_URI. </br>
+Check .env.exampl for help. </br>
 
-### 🧪 Running the App
-
-```bash
-npm run dev     # or yarn dev
-```
-
-Open [http://localhost:5173](http://localhost:5173) in your browser.
-
----
-
-### 📦 Building for Production
-
-```bash
-npm run build
-npm run preview     # or yarn preview
-```
-
-This will give you a ready-to-serve production build, locally previewable before deployment.
-
----
-
-## 🧭 Project Structure
+Now copy paste the following code inside your Terminal:
 
 ```
-inkei/
-├── backend/              # Backend logic (optional)
-├── public/               # Static assets
-├── src/                  # Core source (components, pages, hooks, utils)
-│   ├── components/       # Reusable UI components
-│   ├── pages/            # Page-level views
-│   ├── assets/           # Images, fonts, and styles
-│   └── main.jsx          # App entry point
-├── index.html            # Main HTML file
-├── package.json          # Project metadata and scripts
-├── tailwind.config.js    # Tailwind configuration
-├── vite.config.js        # Vite configuration
-└── README.md             # This file!
+npm i
+npm run dev
+cd backend -> npm start
 ```
 
----
+You should see https://locahost:5173/ as your frontend server and MongoDB connected and WebSocket server running messages.
+</br> Repeat the steps if anything goes wrong.
 
-## 📜 Scripts
-
-| Command           | Description                          |
-|------------------|--------------------------------------|
-| `npm run dev`     | Start the development server         |
-| `npm run build`   | Generate a production-ready build    |
-| `npm run preview` | Preview the production build locally |
-| `npm run lint`    | Run ESLint to check code quality     |
-
----
-
-## 🤝 Contributing
-
-Contributions, suggestions, and stars are always welcome!  
-If you'd like to improve or extend **inkei**, feel free to:
-
-1. Fork this repo
-2. Create a new branch
-3. Push your changes
-4. Open a pull request
-
----
-
-## 💡 Inspiration
-
-This project aims to be a minimal yet powerful starting point for frontend devs who care about speed, clarity, and modern tooling. Perfect for quick MVPs, personal projects, or side hustles.
-
----
-
-## 🧠 Author
-
-**[MaharshiBasu](https://github.com/MashyBasker)** — feel free to connect, fork, or DM.
-**[RudranilChowdhury](https://github.com/Zephyrus2822)** - feel free to connect, fork, or DM!
-**[AyashBera](https://github.com/Ayash-Bera)** - feel free to connect, fork, or DM!
-**[SoubhagyaSadhukhan](https://github.com/levi911)** - feel free to connect, fork, or DM!
-
----
-
-## 📄 License
-
-[MIT](./LICENSE)
-```
-                                 Apache License
-                           Version 2.0, January 2004
-                        http://www.apache.org/licenses/
-
-TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
-
-1. Definitions.
-
-   "License" shall mean the terms and conditions for use, reproduction,
-   and distribution as defined by Sections 1 through 9 of this document.
-
-   "Licensor" shall mean the copyright owner or entity authorized by
-   the copyright owner that is granting the License.
-
-   "Legal Entity" shall mean the union of the acting entity and all
-   other entities that control, are controlled by, or are under common
-   control with that entity.
-
-   "You" (or "Your") shall mean an individual or Legal Entity
-   exercising permissions granted by this License.
-
-   "Source" form shall mean the preferred form for making modifications,
-   including but not limited to software source code, documentation
-   source, and configuration files.
-
-   "Object" form shall mean any form resulting from mechanical
-   transformation or translation of a Source form, including but
-   not limited to compiled object code, generated documentation,
-   and conversions to other media types.
-
-   "Work" shall mean the work of authorship, whether in Source or
-   Object form, made available under the License.
-
-   "Derivative Works" shall mean any work, whether in Source or Object
-   form, that is based on (or derived from) the Work and for which the
-   editorial revisions, annotations, elaborations, or other modifications
-   represent, as a whole, an original work of authorship.
-
-   "Contribution" shall mean any work of authorship, including the
-   original version of the Work and any modifications or additions
-   to that Work or Derivative Works thereof, that is intentionally
-   submitted to Licensor for inclusion in the Work by the copyright
-   owner or by an individual or Legal Entity authorized to submit on
-   behalf of the copyright owner.
-
-2. Grant of Copyright License.
-
-   Subject to the terms and conditions of this License, each Licensor
-   hereby grants You a perpetual, worldwide, non-exclusive, no-charge,
-   royalty-free, irrevocable copyright license to reproduce, prepare
-   Derivative Works of, publicly display, publicly perform, sublicense,
-   and distribute the Work and such Derivative Works in Source or Object
-   form.
-
-3. Grant of Patent License.
-
-   Subject to the terms and conditions of this License, each Licensor
-   hereby grants You a perpetual, worldwide, non-exclusive, no-charge,
-   royalty-free, irrevocable (except as stated in this section) patent
-   license to make, have made, use, offer to sell, sell, import, and
-   otherwise transfer the Work, where such license applies only to those
-   patent claims licensable by such Licensor that are necessarily
-   infringed by their Contribution(s) alone or by combination of their
-   Contribution(s) with the Work to which such Contribution(s) was
-   submitted. If You institute patent litigation against any entity
-   (including a cross-claim or counterclaim in a lawsuit) alleging that
-   the Work or a Contribution incorporated within the Work constitutes
-   direct or contributory patent infringement, then any patent licenses
-   granted to You under this License for that Work shall terminate as
-   of the date such litigation is filed.
-
-4. Redistribution.
-
-   You may reproduce and distribute copies of the Work or Derivative
-   Works thereof in any medium, with or without modifications, and in
-   Source or Object form, provided that You meet the following conditions:
-
-   (a) You must give any other recipients of the Work or Derivative Works
-       a copy of this License; and
-
-   (b) You must cause any modified files to carry prominent notices
-       stating that You changed the files; and
-
-   (c) You must retain, in the Source form of any Derivative Works that
-       You distribute, all copyright, patent, trademark, and attribution
-       notices from the Source form of the Work, excluding those notices
-       that do not pertain to any part of the Derivative Works; and
-
-   (d) If the Work includes a "NOTICE" text file as part of its
-       distribution, then any Derivative Works that You distribute must
-       include a readable copy of the attribution notices contained
-       within such NOTICE file, excluding those notices that do not
-       pertain to any part of the Derivative Works, in at least one
-       of the following places: within a NOTICE text file distributed
-       as part of the Derivative Works; within the Source form or
-       documentation, if provided along with the Derivative Works; or,
-       within a display generated by the Derivative Works, if and
-       wherever such third-party notices normally appear. The contents
-       of the NOTICE file are for informational purposes only and do
-       not modify the License. You may add Your own attribution notices
-       within Derivative Works that You distribute, alongside or as
-       an addendum to the NOTICE text from the Work, provided that such
-       additional attribution notices cannot be construed as modifying
-       the License.
-
-   You may add Your own copyright statement to Your modifications and
-   may provide additional or different license terms and conditions
-   for use, reproduction, or distribution of Your modifications, or
-   for any such Derivative Works as a whole, provided Your use,
-   reproduction, and distribution of the Work otherwise complies with
-   the conditions stated in this License.
-
-5. Submission of Contributions.
-
-   Unless You explicitly state otherwise, any Contribution intentionally
-   submitted for inclusion in the Work by You to the Licensor shall be
-   under the terms and conditions of this License, without any additional
-   terms or conditions. Notwithstanding the above, nothing herein shall
-   supersede or modify the terms of any separate license agreement you
-   may have executed with Licensor regarding such Contributions.
-
-6. Trademarks.
-
-   This License does not grant permission to use the trade names,
-   trademarks, service marks, or product names of the Licensor,
-   except as required for describing the origin of the Work and
-   reproducing the content of the NOTICE file.
-
-7. Disclaimer of Warranty.
-
-   Unless required by applicable law or agreed to in writing, Licensor
-   provides the Work (and each Contributor provides its Contributions)
-   on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
-   either express or implied, including, without limitation, any
-   warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY,
-   or FITNESS FOR A PARTICULAR PURPOSE. You are solely responsible for
-   determining the appropriateness of using or redistributing the Work
-   and assume any risks associated with Your exercise of permissions
-   under this License.
-
-8. Limitation of Liability.
-
-   In no event and under no legal theory, whether in tort (including
-   negligence), contract, or otherwise, unless required by applicable
-   law (such as deliberate and grossly negligent acts) or agreed to in
-   writing, shall any Contributor be liable to You for damages, including
-   any direct, indirect, special, incidental, or consequential damages of
-   any character arising as a result of this License or out of the use or
-   inability to use the Work (including but not limited to damages for
-   loss of goodwill, work stoppage, computer failure or malfunction, or
-   any and all other commercial damages or losses), even if such
-   Contributor has been advised of the possibility of such damages.
-
-9. Accepting Warranty or Additional Liability.
-
-   While redistributing the Work or Derivative Works thereof, You may
-   choose to offer, and charge a fee for, acceptance of support,
-   warranty, indemnity, or other liability obligations and/or rights
-   consistent with this License. However, in accepting such obligations,
-   You may act only on Your own behalf and on Your sole responsibility,
-   not on behalf of any other Contributor, and only if You agree to
-   indemnify, defend, and hold each Contributor harmless for any
-   liability incurred by, or claims asserted against, such Contributor
-   by reason of your accepting any such warranty or additional liability.
-
-END OF TERMS AND CONDITIONS
-
----
-
-## Copyright
+Now to test the AI pipeline endpoint:
 
 ```
+cd AIModels -> python main.py --initial input/filename1 <optiona> --additional input/filename2
+```
+
+Supported files - .md, .txt, .rtf </br>
+You can add any file as long as the contents of the file is more than 60 words long.
+
+## 🎈 Usage <a name="usage"></a>
+
+For any discrepancies, reach out to rudranilchowdhury83@gmail.com :D
+
+## ⛏️ Built With <a name = "tech_stack"></a>
+
+- [MongoDB](https://www.mongodb.com/) - Database
+- [Express](https://expressjs.com/) - Server Framework
+- [React](https://react.dev/) - Frontend Framework
+- [NodeJs](https://nodejs.org/en/) - Server Environment
+- [Python](https://www.python.org/) - For AI related tasks
+
+## ✍️ Authors <a name = "authors"></a>
+
+- [MaharshiBasu](https://github.com/MashyBasker)
+- [Zephyrus2822](https://github.com/Zephyrus2822)
+- [AyashBera](https://github.com/Ayash-Bera)
+- [SoubhagyaSadhukhan](https://github.com/levi911)
