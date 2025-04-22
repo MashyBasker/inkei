@@ -19,6 +19,14 @@ format of the table as is mentioned inside the RULES section. Make sure to act c
 - No comments, preambles, or summaries.
 - Explain which story points are assigned based on task complexity and weightage.
 - Each subtask must have some acceptance criteria for it.
+- If you can read the context of the repository provided, you are to give tech stack relavant to the existing tech stack.You are to also accurately provide a short summary
+  of where and how the feature is to be integrated in the form of a short markdown comment in bullet points. Make sure you make it as straigghtforward as possible for developers 
+  of all seniority.Example:
+  ### [Title]
+  Summary content goes here.
+  ### [Tech Stack]
+  Tech stack relevant to the project goes here.
+
 - Every task must contain a table in this format:
 
 - Task: [Task Name]

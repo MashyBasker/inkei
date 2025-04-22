@@ -1,0 +1,1 @@
+"I want to implement a real-time chatting application inside the existing application , ill let you decide the tech stack so gimme a rough estimate of a project plan. feel free to update workflows and everything as you do so."
