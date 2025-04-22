@@ -90,11 +90,13 @@ You should see https://locahost:5173/ as your frontend server and MongoDB connec
 Now to test the AI pipeline endpoint:
 
 ```
-cd AIModels -> python main.py --initial input/filename1 <optional> --additional input/filename2
+cd AIModels -> cd fuckaround
+python -m venv venv
+venv\Scripts\activate\pip install -r requirements.txt
+streamlit run app.py
 ```
-
+You should see a streamlit server running at localhost:8501
 Supported files - .md, .txt, .rtf </br>
-You can add any file as long as the contents of the file is more than 60 words long.
 
 ## 🎈 Usage <a name="usage"></a>
 
