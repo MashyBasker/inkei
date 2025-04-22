@@ -92,7 +92,8 @@ Now to test the AI pipeline endpoint:
 ```
 cd AIModels -> cd fuckaround
 python -m venv venv
-venv\Scripts\activate\pip install -r requirements.txt
+venv\Scripts\activate
+pip install -r requirements.txt
 streamlit run app.py
 ```
 You should see a streamlit server running at localhost:8501
